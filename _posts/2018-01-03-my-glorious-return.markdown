@@ -2,6 +2,7 @@
 layout: post
 title:  "My Glorious Return"
 date:   2018-01-03 09:25:35 -0800
+description: It's been a while, but I'm back
 ---
 
 It's a new year, and I've decided to pick my blog back up after letting it go to the wayside over the last 18-or-so months. I spent the majority of 2017 distracted by motorcycling, sailing, cryptocurrency trading, and taking trips all over the Pacific Northwest. All of which were incredibly satisfying, but Winter is here, it's project time, and rebooting my blog has been at the top of my projects list for some time now so I figured it was time to pull the trigger and get something new together. We've got plenty of time for that, though. Let's do an update first.
