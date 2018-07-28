@@ -8,4 +8,4 @@ Good beers. You really have to have good beers to get through a Northwest Winter
 
 ![](https://s3.amazonaws.com/images.willricketts.com/sanity.jpg)
 
-
+##### I really love the above picture. My first sailboat is the Gypsea Rose on the right. My current boat, Sanity is in the middle.
