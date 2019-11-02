@@ -4,36 +4,48 @@ title: Introducing Rhea
 description: A tick-based 4x space conquest strategy MMO
 ---
 
+![](https://s3.amazonaws.com/images.willricketts.com/rhea/scifi.jpg)
+
 Over the last several months, I've been working on the backend for a lofty project. While not _that much_ of a PC gamer, I generally focus on two types of games:
 
-* Grand Strategy / 4x (explore, expand, exploit, exterminate)
+### Grand Strategy / 4x (explore, expand, exploit, exterminate)
   - [Europa Universalis 4](https://www.paradoxplaza.com/europa-universalis-all/)
   - [Hearts of Iron](https://www.paradoxplaza.com/hearts-of-iron-iv/HIHI04GSK-MASTER.html)
   - [Stellaris](https://www.paradoxplaza.com/stellaris/STST01G-MASTER.html)
   - [Crusader Kings 2](https://www.paradoxplaza.com/crusader-kings-ii/CKCK02GSK-MASTER.html)
-* Sci-fi Sandboxes
+
+  <br/>
+
+### Sci-fi Sandboxes
   - [Eve Online](https://www.eveonline.com/)
   - [the idea of] [Star Citizen](https://robertsspaceindustries.com/) (lol if it ever comes out)
   - [Planetarion](http://planetarion.com/)
+
+  <br/>
 
 Aside from Star Citizen, due to the possibility of it being vaporware, all of these titles have been staples of the last several years of PC gaming for me-- especially Eve Online, Planetarion, and Stellaris.
 
 Each of these games have unique characteristics that I really enjoy, but I've always thought about what it would be like for a game to incorporate all of them in harmonious union. Eve Online's metagame, political intrigue, complex player-driven economy, and expansive universe create an immersive third person experience with an extremely high skill cap. Stellaris focuses more on developing and scaling an empire from the perspective of its leader. Planetarion shares with Stellaris its perspective, but is a tick-based game played largely in text within a web browser, making it extremely portable and not totally married to a client with its own specific system or platform needs. To distill these properties into those that inspire the dynamics of Rhea:
 
-* Eve Online
+### Eve Online
   - Persistent universe
   - Player-to-player political intrigue
   - Player-driven economy
   - Robust industrial system
 
-* Stellaris
+  <br/>
+
+### Stellaris
   - Played from the context of the leader of an empire as opposed to Eve's perspective of a single pilot in a large universe
   - Player-driven relationships with NPC factions
 
-* Planetarion
+  <br />
+
+### Planetarion
   - Can be played in the browser
   - Tick-based
 
+  <br/>
 
 Whew. There's a lot to unpack there. Suffice to say, I've had a bit of difficulty describing the project in a brief way that's easy to understand for someone who's unfamiliar with these three titles, so I've taken to describing Rhea as "a tick-based 4x space conquest strategy MMO." Most people are familiar with terms like "MMO" and "space conquest," though a bit of this might take some explanation.
 
@@ -66,9 +78,7 @@ I've chosen Elixir for the backend implementation of the various game services d
 
 #### Structure
 
-Rhea's backend, in its current state, is built as an Elixir umbrella with a few sub-apps handling various aspects of the game, such as its public api, persistence layer, galactic map (more on this part of the project in later posts), and a general orchestration layer.
-
-![](https://s3.amazonaws.com/images.willricketts.com/rhea/rhea_structure.png)
+Rhea's backend, in its current state, is built as an Elixir umbrella with a few sub-apps handling various aspects of the game, such as its public api, persistence layer, galactic map (more on this part of the project in later posts), and a general orchestration layer, `main`.
 
 Aside from `main`, each of these sub-apps exposes an interface to its various public functions as to prevent cross-application coupling:
 
