@@ -30,11 +30,11 @@ Some very desirable but non-obvious effects arise from this kind of model for a 
 
 ### Generating the Map
 
-Creating a map of this size and detail was a challenging problem to solve, and at the time of this writing, still presents obstacles to overcome to achieve an optimal map structure
+Creating a map of this size and detail was a challenging problem to solve, and at the time of this writing, still presents obstacles to overcome to achieve an optimal map structure.
 
 #### First Attempts
 
-When I first sat down to work on figuring out the most immediate challenges in building Rhea, my intent was to get something simple working and then expand upon the idea later. Upon researching how I would go about generating a map of this nature with DAG-like properties, I found [Astrosynthesis](https://www.nbos.com/products/astrosynthesis), a piece of software used for generating celestial structures primarily for role-playing games and hobbyist world-building. This program had a bunch of great features that'd be super useful for my needs, but two features stood out in particular. Astrosynthesis has a user-created plugin ecosystem and an XML exporter. 
+When I first sat down to work on figuring out the most immediate challenges in building Rhea, my intent was to get something simple working and then expand upon the idea later. Upon researching how I would go about generating a map of this nature with DAG-like properties, I found [Astrosynthesis](https://www.nbos.com/products/astrosynthesis), a piece of software used for generating celestial structures primarily for role-playing games and hobbyist world-building. This program had a bunch of great features that'd be useful for my needs, but two features stood out in particular. Astrosynthesis has a user-created plugin ecosystem and an XML exporter. 
 
 ![](https://s3.amazonaws.com/images.willricketts.com/rhea/astrosynthesis.png)
 
@@ -112,7 +112,7 @@ end
 
 #### Wormholes
 
-If you're familiar with working with graphs, you were probably left wondering why I refer to Rhea's map as a _directed_ acyclic graph as opposed to an _undirected_ acyclic graph. Rhea's stargates are represented in its persistence layer as pairs of gates, each unidirectional. This enables me to, at some point, build a wormhole system in which a player's fleets can travel from one part of the galaxy to another instantly, but perhaps not return home through the same wormhole.
+If you're familiar with graphs, then you were probably left wondering why I refer to Rhea's map as a _directed_ acyclic graph as opposed to an _undirected_ acyclic graph. Rhea's stargates are represented in its persistence layer as pairs of gates, each unidirectional. This enables me to, at some point, build a wormhole system in which a player's fleets can travel from one part of the galaxy to another instantly, but perhaps not return home through the same wormhole.
 
 #### Tactical Structures
 
