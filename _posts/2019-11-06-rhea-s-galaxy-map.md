@@ -4,7 +4,7 @@ title: Rhea's Galaxy Map
 description: Adventures in DAGs, Graph Databases, and Brownian Motion
 ---
 
-In the [last post](https://willricketts.com/2019/introducing-rhea/), I covered the various game titles and mechanics they utilize that I've drawn inspiraation from for the design of Rhea. In covering Rhea's galactic map, I'd like to focus upon two of them heavily-- Eve Online and Stellaris.
+In the [last post](https://willricketts.com/2019/introducing-rhea/), I covered the various game titles and mechanics they utilize that I've drawn inspiration from for the design of Rhea. In covering Rhea's galactic map, I'd like to focus upon two of them heavily-- Eve Online and Stellaris.
 
 ### Inspiration
 
@@ -16,7 +16,7 @@ In any case, both systems function in a similar way, in that players and their f
 
 Based on a system of ephemeral matches, Stellaris's game maps are generated uniquely for each. Thus, each time the player creates a new empire or species and starts a game, a new map is generated and configured via the player's selected settings when creating the game.
 
-One of the major strategies when starting a game of Stellaris is to rapidly expand to claim and build defenses around choke-point systems, or systems that have many connetions as to control the flow of traffic through that portion of the map. This is a side-effect of this glactic map model that I'm intent upon creating.
+One of the major strategies when starting a game of Stellaris is to rapidly expand to claim and build defenses around choke-point systems, or systems that have many connections as to control the flow of traffic through that portion of the map. This is a side-effect of this galactic map model that I'm intent upon creating.
 
 ![](https://s3.amazonaws.com/images.willricketts.com/rhea/stellarismap.jpg)
 
@@ -30,7 +30,7 @@ Some very desirable but non-obvious effects arise from this kind of model for a 
 
 ### Generating the Map
 
-Creating a map of this size and detail was a challenging problem to solve, and at the time of this writing, still presents obstacles to overome to achieve an optimal map structure
+Creating a map of this size and detail was a challenging problem to solve, and at the time of this writing, still presents obstacles to overcome to achieve an optimal map structure
 
 #### First Attempts
 
@@ -38,16 +38,16 @@ When I first sat down to work on figuring out the most immediate challenges in b
 
 ![](https://s3.amazonaws.com/images.willricketts.com/rhea/astrosynthesis.png)
 
-Before long, I had a galaxy containing ~20 solar systems and connections between them, which I exported to a large XML document, which I was able to load into the Elixir-based backend of Rhea with [elixir-xml-to-map](https://github.com/homanchou/elixir-xml-to-map).
+Before long, I had a galaxy containing ~20 solar systems and connections between them, which I exported to a large XML document, which I was able to load into the Elixir-based backend of Rhea with [elixir-XML-to-map](https://github.com/homanchou/elixir-xml-to-map).
 
 
 #### Using the Data
 
-From this _very_ large map, I perform a series of mutations on the data to order it into a list of Solar Systems and one of Gates. With these lists, I first created a DB record for each of the solar systems within PostgreSQL. With a SolarSystems table populated with data, I would need to represent the data somwhere that graph-oriented data feels right at home. This is where [Neo4j](https://neo4j.com/) comes into play.
+From this _very_ large map, I perform a series of mutations on the data to order it into a list of Solar Systems and one of Gates. With these lists, I first created a DB record for each of the solar systems within PostgreSQL. With a SolarSystems table populated with data, I would need to represent the data somewhere that graph-oriented data feels right at home. This is where [Neo4j](https://neo4j.com/) comes into play.
 
 If you're unfamiliar, Neo4j is a graph database. This turned out to be the perfect tool for Rhea. It was immediately apparent that its Cypher query language had the features needed to power several in-game systems for Rhea. Namely its ability to find the shortest path between nodes, or in the domain of Rhea, solar systems.
 
-Claiming victory over my first set of development goals, I took a 2-month break from working on Rhea to focus on a large project I was leading at work, a large web service responsible for creating and marshalling Twilio conference calls in parallel-- also built using an Elixir umbrella, also structured with the intent of utilizing BEAM's distribution features in the future.
+Claiming victory over my first set of development goals, I took a 2-month break from working on Rhea to focus on a large project I was leading at work, a large web service responsible for creating and marshaling Twilio conference calls in parallel-- also built using an Elixir umbrella, also structured with the intent of utilizing BEAM's distribution features in the future.
 
 When I finally had time to devote to Rhea again, I revisited the map I'd generated and simply wasn't happy with the result. After generating entirely new map data, this time for 2000 solar systems, I was dismayed to learn that the XML schema for my new map data was fundamentally different than that of my previous map. This would require me to write an entirely new parser and process for loading the map data into PostgreSQL and Neo4j. This was unacceptable to me.
 
